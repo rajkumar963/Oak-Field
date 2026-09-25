@@ -1,3 +1,0 @@
-module.exports=[3363,a=>{"use strict";var b=a.i(7997),c=a.i(40446);a.s(["default",0,function(){return(0,b.jsxs)("section",{className:"wrap not-found",children:[(0,b.jsx)("p",{className:"eyebrow",children:"404 / Off the beaten path"}),(0,b.jsx)("h1",{children:"A different direction."}),(0,b.jsx)("p",{children:"We couldn’t find that page. There is more to explore from here."}),(0,b.jsx)(c.TextLink,{href:"/",children:"Return to Oak Field"})]})}])},17537,function(a){a.n(a.i(3363))}];
-
-//# sourceMappingURL=src_app_not-found_tsx_1863-sq._.js.map

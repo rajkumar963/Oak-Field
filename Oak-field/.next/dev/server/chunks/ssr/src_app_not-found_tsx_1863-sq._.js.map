@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///D:/Oak-field/src/app/not-found.tsx"],"sourcesContent":["import { TextLink } from '@/components/ui';\nexport default function NotFound(){return <section className=\"wrap not-found\"><p className=\"eyebrow\">404 / Off the beaten path</p><h1>A different direction.</h1><p>We couldn’t find that page. There is more to explore from here.</p><TextLink href=\"/\">Return to Oak Field</TextLink></section>}\n"],"names":["NotFound","className","href"],"mappings":";;;;;AAAA;;;AACe,SAASA;IAAW,qBAAO,8OAAC;QAAQC,WAAU;;0BAAiB,8OAAC;gBAAEA,WAAU;0BAAU;;;;;;0BAA6B,8OAAC;0BAAG;;;;;;0BAA2B,8OAAC;0BAAE;;;;;;0BAAmE,8OAAC,oIAAQ;gBAACC,MAAK;0BAAI;;;;;;;;;;;;AAAwC"}}]
-}

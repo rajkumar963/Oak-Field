@@ -9,7 +9,7 @@ export const navigation: { label: string; href: string; menu?: NavMenu }[] = [
     { title: 'The people', text: 'Different disciplines. One conversation.', href: '/who-we-are#people', icon: 'people' },
     { title: 'Contact us', text: 'A conversation is a good beginning.', href: '/enquiries', icon: 'envelope' },
   ] } },
-  { label: 'Our research', href: '/our-research', menu: { kind: 'feature', visual: 'rings', title: 'Inside our process', text: 'From an observation to a better understanding—ask, understand, model, challenge, implement, revisit.', cta: { label: 'Learn more', href: '/our-research' } } },
+  { label: 'Our research', href: '/our-research', menu: { kind: 'feature', visual: 'rings', title: 'Inside our process', text: 'From an observation to a better understanding-ask, understand, model, challenge, implement, revisit.', cta: { label: 'Learn more', href: '/our-research' } } },
   { label: 'News & insights', href: '/news-insights', menu: { kind: 'links', items: [
     { title: 'News & insights', text: 'Perspectives on research, technology, and the way we think.', href: '/news-insights', icon: 'notes' },
     { title: 'Tech blog', text: 'Notes on the craft behind the research.', href: '/tech-blog', icon: 'code' },

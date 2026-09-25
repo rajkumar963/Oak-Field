@@ -1,3 +1,0 @@
-module.exports=[9475,a=>{"use strict";var b=a.i(87924),c=a.i(72131);a.s(["default",0,function({children:a}){let d=(0,c.useRef)(null);return(0,c.useEffect)(()=>{if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;let a=new IntersectionObserver(b=>b.forEach(b=>{b.isIntersecting&&(b.target.classList.add("revealed"),a.unobserve(b.target))}),{threshold:.08});return d.current?.querySelectorAll(".intro-section,.pillar,.technology-inner,.article-card,.careers-invitation,.content-section").forEach(b=>{b.getBoundingClientRect().top>window.innerHeight&&(b.classList.add("reveal-pending"),a.observe(b))}),()=>a.disconnect()},[]),(0,b.jsx)("div",{ref:d,className:"page-transition",children:a})}])}];
-
-//# sourceMappingURL=src_app_template_tsx_0hmju32._.js.map

@@ -8,7 +8,7 @@ export function SmoothScroll() {
   const path = usePathname();
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const instance = new Lenis({ lerp: .085, wheelMultiplier: .95, autoRaf: true });
+    const instance = new Lenis({ lerp: .1, wheelMultiplier: 1, autoRaf: true });
     lenis.current = instance;
     // Same-page anchors glide instead of jumping. Captured before Next's Link so the two don't compete.
     const onClick = (e: MouseEvent) => {

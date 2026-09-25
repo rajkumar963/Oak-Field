@@ -27,13 +27,12 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
-  const header = useRef<HTMLElement>(null);
   const closeTimer = useRef<number>(undefined);
   useEffect(() => { if (!open) return; const handle = (e: KeyboardEvent) => { if (e.key === 'Escape') { setOpen(false); toggle.current?.focus(); } }; document.addEventListener('keydown', handle); return () => document.removeEventListener('keydown', handle); }, [open]);
   useEffect(() => { setActive(null); }, [path]);
   useEffect(() => {
     let last = window.scrollY, frame = 0;
-    const update = () => { frame = 0; const y = window.scrollY, max = document.documentElement.scrollHeight - window.innerHeight; header.current?.style.setProperty('--progress', max > 0 ? (y / max).toFixed(4) : '0'); setScrolled(y > 24); if (y > last + 6 && y > 180) setHidden(true); else if (y < last - 6 || y < 180) setHidden(false); last = y; };
+    const update = () => { frame = 0; const y = window.scrollY; setScrolled(y > 24); if (y > last + 6 && y > 180) setHidden(true); else if (y < last - 6 || y < 180) setHidden(false); last = y; };
     const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
     window.addEventListener('scroll', onScroll, { passive: true }); update();
     return () => { window.removeEventListener('scroll', onScroll); cancelAnimationFrame(frame); };
@@ -41,7 +40,7 @@ export function Navigation() {
   const show = (href: string) => { window.clearTimeout(closeTimer.current); setActive(href); };
   const hide = () => { window.clearTimeout(closeTimer.current); closeTimer.current = window.setTimeout(() => setActive(null), 140); };
   const close = () => { window.clearTimeout(closeTimer.current); setActive(null); setOpen(false); };
-  return <header ref={header} className="site-header" data-scrolled={scrolled || undefined} data-hidden={(hidden && !open && !active) || undefined}><Link href="/" className="brand" aria-label="Oak Field Research home" onClick={close}><OakMark/><span>OAK FIELD<span className="brand-sub">RESEARCH</span></span></Link><button ref={toggle} className="menu-toggle" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}<span aria-hidden="true">{open ? '−' : '+'}</span></button><nav id="main-navigation" aria-label="Main navigation" className={open ? 'main-nav is-open' : 'main-nav'}>{navigation.map(item => {
+  return <header className="site-header" data-scrolled={scrolled || undefined} data-hidden={(hidden && !open && !active) || undefined}><Link href="/" className="brand" aria-label="Oak Field Research home" onClick={close}><OakMark/><span>OAK FIELD<span className="brand-sub">RESEARCH</span></span></Link><button ref={toggle} className="menu-toggle" aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>{open ? 'Close' : 'Menu'}<span aria-hidden="true">{open ? '−' : '+'}</span></button><nav id="main-navigation" aria-label="Main navigation" className={open ? 'main-nav is-open' : 'main-nav'}>{navigation.map(item => {
     const current = path === item.href || path.startsWith(`${item.href}/`) ? 'page' : undefined;
     if (!item.menu) return <Link href={item.href} key={item.href} className="nav-link nav-cta" onClick={close} aria-current={current}><span>{item.label}</span><span aria-hidden="true">↗</span></Link>;
     const panelId = `panel${item.href.replace('/', '-')}`, isOpen = active === item.href;
