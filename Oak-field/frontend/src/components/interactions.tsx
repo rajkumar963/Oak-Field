@@ -1,0 +1,14 @@
+'use client';
+import { useState } from 'react';
+import { ArticleCard } from './ui';
+import { articles, steps } from '../lib/content';
+export function ResearchProcess() {
+  const [active, setActive] = useState(0);
+  return <div className="process"><div className="process-tabs" role="tablist" aria-label="Research process">{steps.map((s, i) => <button id={`step-${i}`} key={s.title} role="tab" aria-selected={i === active} aria-controls="process-panel" tabIndex={i === active ? 0 : -1} onClick={() => setActive(i)} onKeyDown={e => { let next = i; if (e.key === 'ArrowRight') next = (i + 1) % steps.length; else if (e.key === 'ArrowLeft') next = (i - 1 + steps.length) % steps.length; else if (e.key === 'Home') next = 0; else if (e.key === 'End') next = steps.length - 1; else return; e.preventDefault(); setActive(next); document.getElementById(`step-${next}`)?.focus(); }}><span>0{i + 1}</span>{s.title}<span className="step-dot"/></button>)}</div><div className="process-panel" id="process-panel" role="tabpanel" aria-labelledby={`step-${active}`}><div className="process-number" aria-hidden="true">0{active + 1}<span>↗</span></div><div key={active} className="process-copy"><p className="eyebrow">{steps[active].note}</p><h3>{steps[active].subtitle}</h3><p>{steps[active].description}</p></div></div><p className="diagram-caption">A conceptual research process. No proprietary strategies or results are represented.</p></div>;
+}
+export function ArticleListing({ section }: { section: 'tech-blog' | 'news-insights' }) {
+  const [query, setQuery] = useState(''); const [category, setCategory] = useState('All');
+  const source = articles.filter(a => a.section === section); const categories = ['All', ...new Set(source.map(a => a.category))];
+  const filtered = source.filter(a => (category === 'All' || a.category === category) && `${a.title} ${a.summary} ${a.category}`.toLowerCase().includes(query.toLowerCase()));
+  return <section className="wrap listing"><div className="listing-tools"><div className="filters" aria-label="Filter articles by topic">{categories.map(c => <button key={c} onClick={() => setCategory(c)} aria-pressed={category === c}>{c}</button>)}</div><label className="search"><span className="sr-only">Search articles</span><input type="search" placeholder="Search the field…" value={query} onChange={e => setQuery(e.target.value)}/><span aria-hidden="true">⌕</span></label></div><p className="results-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'article' : 'articles'} · Illustrative editorial content</p>{filtered.length ? <div className="article-grid">{filtered.map(a => <ArticleCard key={a.slug} article={a}/>)}</div> : <div className="empty-state"><h2>No notes found.</h2><p>Try another search or explore all topics.</p><button className="text-link" onClick={() => { setQuery(''); setCategory('All'); }}>Clear filters <span aria-hidden="true">→</span></button></div>}</section>;
+}

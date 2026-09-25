@@ -1,0 +1,12 @@
+{
+  "/[section]/[slug]/page": "app/[section]/[slug]/page.js",
+  "/[section]/page": "app/[section]/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/enquiries/route": "app/api/enquiries/route.js",
+  "/icon.svg/route": "app/icon.svg/route.js",
+  "/opengraph-image/route": "app/opengraph-image/route.js",
+  "/page": "app/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js"
+}

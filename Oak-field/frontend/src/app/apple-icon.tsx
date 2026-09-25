@@ -1,0 +1,4 @@
+import { ImageResponse } from 'next/og';
+export const size={width:180,height:180};
+export const contentType='image/png';
+export default function AppleIcon(){return new ImageResponse(<div style={{background:'#233c2c',width:'100%',height:'100%',display:'flex',alignItems:'center',justifyContent:'center'}}><svg width="140" height="134" viewBox="12 -2 222 222"><path d="M123 0L201 60L168 93H78L45 60Z" fill="#617367"/><path d="M123 18L215 92L201 110H45L31 92Z" fill="#53675a"/><path d="M123 18L189.5 71.5L168 93H78L56.5 71.5Z" fill="#839288"/><path d="M123 43L229 128L199 163H47L17 128Z" fill="#4b5f52"/><path d="M123 43L203.1 107.3L201 110H45L42.9 107.3Z" fill="#738278"/><path d="M123 43L175.7 85.3L168 93H78L70.3 85.3Z" fill="#9aa59e"/><rect x="110" y="164" width="26" height="49" rx="6" fill="#9ca7a0"/><path d="M43 216.5H203" stroke="#c0a95d" strokeWidth="4"/></svg></div>,size)}
