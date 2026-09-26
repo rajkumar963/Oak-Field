@@ -21,10 +21,10 @@ export const enquiryCategories = [
 // An optional short mp4 (video) adds a play button to the card.
 export type TeamMember = { name?: string; role: string; photo?: string; video?: string };
 export const team: TeamMember[] = [
-  { name: 'Rohan Majumder', role: 'Trading Desk Head', photo: '/team/rohan-majumder.jpg' },
-  { name: 'Siddharth Jaiswal', role: 'Designated Partner', photo: '/team/siddharth-jaiswal.jpg' },
-  { name: 'Aniket Roy', role: 'Designated Partner', photo: '/team/aniket-roy.jpg' },
   { name: 'Souham Sengupta', role: 'Founder and Managing Partner', photo: '/team/souham-sengupta.jpg' },
+  { name: 'Aniket Roy', role: 'Designated Partner', photo: '/team/aniket-roy.jpg' },
+  { name: 'Siddharth Jaiswal', role: 'Designated Partner', photo: '/team/siddharth-jaiswal.jpg' },
+  { name: 'Rohan Majumder', role: 'Trading Desk Head', photo: '/team/rohan-majumder.jpg' },
 ];
 export const navigation: { label: string; href: string; menu?: NavMenu }[] = [
   { label: 'Who We Are', href: '/who-we-are', menu: { items: [
