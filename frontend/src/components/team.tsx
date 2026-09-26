@@ -38,7 +38,7 @@ export function TeamCarousel({ members }: { members: TeamMember[] }) {
     <div className="team-viewport">
       {/* Horizontal swipes belong to the track; Lenis keeps vertical page scrolling. */}
       <div ref={track} className="team-track" role="group" aria-label="Team members" tabIndex={0} data-lenis-prevent-horizontal>{members.map((m, i) => <div key={i} className="team-card" role="group" aria-roledescription="slide" aria-label={`${i + 1} of ${members.length}`}>
-        <div className="team-media">{m.photo ? <Image src={m.photo} alt={m.name ? `Portrait of ${m.name}` : ''} fill sizes="(max-width: 600px) 86vw, (max-width: 1150px) 46vw, 32vw"/> : <><TeamArt seed={i}/><span className="team-tag">OFR / Team / {pad(i + 1)}</span><span className="team-tag team-tag-end">Portrait to follow</span></>}
+        <div className="team-media">{m.photo ? <Image src={m.photo} alt={m.name ? `Portrait of ${m.name}` : 'Portrait of an Oak Field team member'} fill sizes="(max-width: 600px) 78vw, (max-width: 850px) 46vw, (max-width: 1150px) 31vw, 22vw"/> : <><TeamArt seed={i}/><span className="team-tag">OFR / Team / {pad(i + 1)}</span><span className="team-tag team-tag-end">Portrait to follow</span></>}
           {m.video && <button type="button" className="team-play" onClick={() => play(m)} aria-label={`Play video: ${m.name ?? m.role}`}><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.5L13.5 8L4 13.5Z" fill="currentColor"/></svg></button>}</div>
         <div className="team-info"><h3>{m.name ?? m.role}</h3><p>{m.name ? m.role : 'Profile coming soon'}</p></div>
       </div>)}</div>

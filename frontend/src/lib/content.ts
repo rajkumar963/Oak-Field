@@ -17,16 +17,14 @@ export const enquiryCategories = [
   { label: 'Careers', slug: 'careers', text: 'Introduce yourself and your interests.' },
   { label: 'General Enquiries', slug: 'general', text: 'Anything else about Oak Field Research.' },
 ];
-// Placeholder profiles until approved ones are supplied. For each person add a name, a portrait (photo, e.g. '/team/name.jpg'
-// in /public) and optionally a short mp4 (video). A card without a name shows its role and "Profile coming soon".
+// Portraits live in /public/team, cropped to 3:4. A card without a name shows its role and "Profile coming soon".
+// An optional short mp4 (video) adds a play button to the card.
 export type TeamMember = { name?: string; role: string; photo?: string; video?: string };
 export const team: TeamMember[] = [
-  { role: 'Quantitative Researcher' },
-  { role: 'Research Engineer' },
-  { role: 'Python Engineer' },
-  { role: 'Algorithm Developer' },
-  { role: 'Data Scientist' },
-  { role: 'Infrastructure Engineer' },
+  { name: 'Rohan Majumder', role: 'Trading Desk Head', photo: '/team/rohan-majumder.jpg' },
+  { name: 'Siddharth Jaiswal', role: 'Designated Partner', photo: '/team/siddharth-jaiswal.jpg' },
+  { name: 'Aniket Roy', role: 'Designated Partner', photo: '/team/aniket-roy.jpg' },
+  { name: 'Souham Sengupta', role: 'Founder and Managing Partner', photo: '/team/souham-sengupta.jpg' },
 ];
 export const navigation: { label: string; href: string; menu?: NavMenu }[] = [
   { label: 'Who We Are', href: '/who-we-are', menu: { items: [
