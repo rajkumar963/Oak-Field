@@ -42,11 +42,13 @@ test('news topic links preselect the matching filter',async({page})=>{
   await expect(page.locator('.article-card')).toHaveCount(2);
   await page.getByRole('button',{name:'Market Insights'}).click();await expect(page.getByText('No notes found.')).toBeVisible();
 });
-test('team carousel moves with arrows and dots',async({page},testInfo)=>{
-  await page.goto('/who-we-are');const dots=page.locator('.team-dots button');const next=page.getByRole('button',{name:'Next team members'});
+test('team shows everyone on desktop and scrolls on smaller screens',async({page},testInfo)=>{
+  await page.goto('/who-we-are');const dots=page.locator('.team-dots button');
+  await expect(page.locator('.team-card')).toHaveCount(4);
   if(testInfo.project.name==='mobile'){await dots.nth(2).click();await expect(dots.nth(2)).toHaveAttribute('aria-current','true');return;}
-  await next.click();await expect(dots.nth(1)).toHaveAttribute('aria-current','true');
-  await dots.last().click();await expect(dots.last()).toHaveAttribute('aria-current','true');await expect(next).toBeHidden();
+  await expect(dots).toHaveCount(0);
+  await page.setViewportSize({width:1000,height:900});const next=page.getByRole('button',{name:'Next team members'});
+  await next.click();await expect(dots.last()).toHaveAttribute('aria-current','true');await expect(next).toBeHidden();
 });
 test('mobile menu opens, navigates, and closes with Escape',async({page},testInfo)=>{
   test.skip(testInfo.project.name!=='mobile');await page.goto('/');await page.getByRole('button',{name:'Menu'}).click();await expect(page.getByRole('navigation',{name:'Main navigation'})).toBeVisible();

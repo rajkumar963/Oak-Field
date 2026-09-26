@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
-const revealed = '.intro-section,.section-heading,.pillar,.technology-inner,.article-card,.careers-invitation,.content-section,.principles>div,.role-row,.hiring-steps>div,.footer-top>div';
+const revealed = '.intro-section,.section-heading,.pillar,.technology-inner,.article-card,.careers-invitation,.content-section,.principles>div,.role-row,.hiring-steps>div,.team-card,.footer-top>div';
 export default function Template({children}:{children:React.ReactNode}) {
   const root = useRef<HTMLDivElement>(null);
   useEffect(() => {
